@@ -24,9 +24,23 @@ contract PackVariables is IPackVariables {
 }
 
 contract PackVariablesOptimized is IPackVariables {
-    /* YOUR SOLUTION GOES HERE */
+    uint8 one; 
+    uint8 six; 
+    bytes14 five;
+    bytes18 three;
+    uint256 two; 
+    uint8[30] four;
 
     function setValues(uint8 _one, uint256 _two, bytes18 _three, uint8[30] calldata _four, bytes14 _five, uint8 _six)
         public
-    {}
+    {
+        one = _one;
+        six = _six;
+        five = _five;
+        three = _three;
+        two = _two;
+        for (uint256 i = 0; i < 30; i++) {
+            four[i] = _four[i];
+        }
+    }
 }

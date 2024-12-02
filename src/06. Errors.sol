@@ -3,6 +3,8 @@ pragma solidity ^0.8.25;
 
 import "./Interfaces.sol";
 
+error NotOwner();
+
 contract Errors is IErrors {
     address owner;
 
@@ -19,7 +21,16 @@ contract Errors is IErrors {
 }
 
 contract ErrorsOptimized is IErrors {
-    /* YOUR SOLUTION GOES HERE */
+    address immutable owner; 
 
-    function call() public view {}
+    modifier onlyOwner() {
+        if (owner != msg.sender) revert NotOwner(); 
+        _;
+    }
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    function call() public view onlyOwner {}
 }

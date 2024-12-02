@@ -22,5 +22,16 @@ contract ErrorsTest is Test {
 }
 
 contract ErrorsOptimizedTest is Test {
-/* YOUR SOLUTION GOES HERE */
+    ErrorsOptimized errors;
+
+    function setUp() public {
+        errors = new ErrorsOptimized();
+    }
+
+    function test_callOptimized() public {
+        vm.startPrank(address(0x01));
+        vm.expectRevert(abi.encodeWithSelector(NotOwner.selector)); // Ссылка на кастомную ошибку
+        errors.call();
+        vm.stopPrank();
+    }
 }

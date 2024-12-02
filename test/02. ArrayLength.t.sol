@@ -19,5 +19,13 @@ contract ArrayLengthsTest is Test {
 }
 
 contract ArrayLengthOptimizedTest is Test {
-/* YOUR SOLUTION GOES HERE */
+    ArrayLengthOptimized arrayLengthOptimized;
+
+    function setUp() public {
+        arrayLengthOptimized = new ArrayLengthOptimized();
+    }
+
+    function test_Call() public view {
+        arrayLengthOptimized.callFor();
+    }
 }

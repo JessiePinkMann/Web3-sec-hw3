@@ -20,5 +20,14 @@ contract CalldataMemoryTest is Test {
 }
 
 contract CalldataMemoryOptimizedTest is Test {
-/* YOUR SOLUTION GOES HERE */
+    CalldataMemoryOptimized calldataMemoryOptimized;
+    uint256[] arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    function setUp() public {
+        calldataMemoryOptimized = new CalldataMemoryOptimized();
+    }
+
+    function test_CallOptimized() public view {
+        calldataMemoryOptimized.add(arr);
+    }
 }
